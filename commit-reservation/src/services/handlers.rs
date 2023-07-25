@@ -5,12 +5,10 @@ pub struct ServiceHandler;
 
 pub trait Handler{
     fn execute(self, cmd: GitCommand); // TODO add return type;
-
 }
 
 impl Handler for ServiceHandler{
     fn execute(self, cmd: GitCommand){
-        // let mut recentCommand:  = String::new
         let result = match cmd {
             GitCommand::Pull{ .. } => {
                 Command::new("git")
@@ -28,7 +26,7 @@ impl Handler for ServiceHandler{
             
             GitCommand::Commit{message} => {
                 Command::new("git")
-                .arg("commit -m {message}")
+                .arg(format!("commit -m {}", message))
                 .output()
                 .expect("error while git commit")
             }
