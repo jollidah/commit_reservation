@@ -9,6 +9,6 @@ mod services;
 
 fn main() {
     let handler = ServiceHandler;
-    let test_command = GitCommand::Pull;
-    handler.execute(test_command);
+    handler.clone().execute(GitCommand::Pull);
+    handler.execute(GitCommand::GetCommitLog);
 }

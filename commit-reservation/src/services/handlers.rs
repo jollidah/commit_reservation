@@ -1,14 +1,15 @@
-use std::process::Command;
+use std::{process::Command, clone, str};
 use crate::domain::command::GitCommand;
 
+#[derive(Clone)]
 pub struct ServiceHandler;
 
 pub trait Handler{
-    fn execute(self, cmd: GitCommand); // TODO add return type;
+    fn execute(self, cmd: GitCommand) -> String; 
 }
 
 impl Handler for ServiceHandler{
-    fn execute(self, cmd: GitCommand){
+    fn execute(self, cmd: GitCommand) -> String{
         let result = match cmd {
             GitCommand::Pull{ .. } => {
                 Command::new("git")
@@ -37,7 +38,14 @@ impl Handler for ServiceHandler{
                 .output()
                 .expect("error while git push")
             }
+
+            GitCommand::GetCommitLog{ .. } => {
+                Command::new("git")
+                .args(["log", "-1"])
+                .output()
+                .expect("error while git log")
+            }
         };
-        println!{"{}", String::from_utf8_lossy(&result.stdout)};
+        String::from_utf8_lossy(&result.stdout).to_string()
     }
 }
