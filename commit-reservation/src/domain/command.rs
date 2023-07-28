@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub enum GitCommand {
     // TODO merge
     Add{
@@ -11,3 +12,9 @@ pub enum GitCommand {
     GetCommitLog
 }
 
+#[allow(dead_code)]
+pub enum DBCommand{
+    Push,
+    Pull,
+    Update
+}
