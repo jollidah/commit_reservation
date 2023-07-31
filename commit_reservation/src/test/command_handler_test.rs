@@ -36,7 +36,6 @@ pub mod command_handler_test{
         let mut output = binding.split("\n");
         println!("{:?}", output.next());
         if output.next().unwrap() == " 1 file changed, 0 insertions(+), 0 deletions(-)"{
-
             return true;
         }
         false
