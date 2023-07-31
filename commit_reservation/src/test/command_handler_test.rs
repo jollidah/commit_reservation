@@ -1,5 +1,7 @@
 #[cfg(test)]
 pub mod command_handler_test{
+    use std::fs;
+
     use crate::domain::command::GitCommand;
     use crate::test::helper::functions::make_test_file;
     use crate::services::handlers::command_handler::CommandHandler;
@@ -54,8 +56,8 @@ pub mod command_handler_test{
         if output.next().unwrap() == "    \"test commit\""{
             let command_handler_tester: CommandHandler = CommandHandler;
             command_handler_tester.execute(Box::new(GitCommand::ResetCommit));
+            fs::remove_file("test.txt").unwrap();
             return true;
-
         }
         false
     }
