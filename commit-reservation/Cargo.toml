@@ -1,9 +1,0 @@
-[package]
-name = "commit-reservation"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-serde = { version = "1.0.175", features = ["derive"]}
-reqwest = {version = "0.11.18", features = ["json"]}
-tokio = { version = "1.29.1", features = ["full"]}
