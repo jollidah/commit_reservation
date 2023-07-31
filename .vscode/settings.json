@@ -1,24 +1,5 @@
 {
     "rust-analyzer.linkedProjects": [
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml",
-        ".\\commit-reservation\\Cargo.toml"
+        ".\\commit_reservation\\Cargo.toml"
     ]
 }
