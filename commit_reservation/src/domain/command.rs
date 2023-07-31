@@ -9,7 +9,7 @@ pub enum GitCommand {
         message: String
     },
     Push,
-    GetCommitLog,
+    Show,
     Status,
     ResetCommit,
 }

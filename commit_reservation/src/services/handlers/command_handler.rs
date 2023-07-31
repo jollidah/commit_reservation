@@ -39,9 +39,9 @@ impl CommandHandler{
                     .expect("error while git push")
                 }
 
-                GitCommand::GetCommitLog{ .. } => {
+                GitCommand::Show{ .. } => {
                     Command::new("git")
-                    .args(["log", "-1"])
+                    .args(["show"])
                     .output()
                     .expect("error while git log")
                 }
@@ -55,12 +55,12 @@ impl CommandHandler{
 
                 GitCommand::ResetCommit{ .. } => {
                     Command::new("git")
-                    .args(["reset", "--hard", "HEAD~1"])
+                    .args(["reset", "--soft", "HEAD~1"])
                     .output()
                     .expect("error while git reset");
 
                     Command::new("git")
-                    .args(["push", "-f", "origin", "master"])
+                    .args(["push", "-f", "origin", "main"])
                     .output()
                     .expect("error while git reset")
                 }

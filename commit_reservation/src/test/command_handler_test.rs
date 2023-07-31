@@ -42,18 +42,21 @@ pub mod command_handler_test{
     }
 
     pub fn git_push() -> bool{
-        let mut test_result : bool = false;
         let command_handler_tester: CommandHandler = CommandHandler;
-        let binding = command_handler_tester.execute(Box::new(GitCommand::Commit { message: (String::from("test commit"))}));
+        command_handler_tester.execute(Box::new(GitCommand::Push));
+        
+        let command_handler_tester: CommandHandler = CommandHandler;
+        let binding = command_handler_tester.execute(Box::new(GitCommand::Show));
         let mut output = binding.split("\n");
-        for _ in 0..6{
-            output.next();
+        for _ in 0..4{
+            println!("{:?}", output.next());
         }
-        if output.next().unwrap() == "remote: Resolving deltas: 100% (1/1), completed with 1 local object."{
-            test_result = true;
+        if output.next().unwrap() == "    \"test commit\""{
+            let command_handler_tester: CommandHandler = CommandHandler;
+            command_handler_tester.execute(Box::new(GitCommand::ResetCommit));
+            return true;
+
         }
-        let command_handler_tester: CommandHandler = CommandHandler;
-        command_handler_tester.execute(Box::new(GitCommand::ResetCommit));
-        test_result
+        false
     }
 }
