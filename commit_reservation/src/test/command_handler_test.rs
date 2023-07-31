@@ -4,6 +4,7 @@ pub mod command_handler_test{
     use crate::test::helper::functions::make_test_file;
     use crate::services::handlers::command_handler::CommandHandler;
 
+
     pub fn git_pull() -> bool {
         let command_handler_tester = CommandHandler;
         command_handler_tester.execute(Box::new(GitCommand::Pull));
