@@ -43,7 +43,7 @@ pub mod command_handler_test{
         false
     }
 
-    pub fn git_push() -> bool{
+    pub fn git_show_push() -> bool{
         let command_handler_tester: CommandHandler = CommandHandler;
         command_handler_tester.execute(Box::new(GitCommand::Push));
         

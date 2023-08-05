@@ -20,6 +20,8 @@ mod a_integration_test{
 
     #[test]
     fn d_test_git_push(){
-        assert_eq!(command_handler_test::git_push(), true);
+        assert_eq!(command_handler_test::git_show_push(), true);
     }
 }
+
+// cargo test -- --test-threads=1
