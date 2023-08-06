@@ -12,6 +12,7 @@ pub enum GitCommand {
     Show,
     Status,
     ResetCommit,
+    GetTodaysCommit
 }
 
 #[allow(dead_code)]

@@ -23,7 +23,6 @@ pub mod command_handler_test{
             command_handler_tester.execute(Box::new(GitCommand::Add { path: String::from(".\\test.txt")}));
             let command_handler_tester = CommandHandler;
             let output = command_handler_tester.execute(Box::new(GitCommand::Status));
-            // println!("{:?}", output);
             let output = output.split_whitespace().filter(|x| **x == String::from("new") || **x == String::from("file:") || **x == String::from("test.txt"));
             if output.count() == 3{
                 return true;
@@ -38,6 +37,19 @@ pub mod command_handler_test{
         let mut output = binding.split("\n");
         println!("{:?}", output.next());
         if output.next().unwrap() == " 1 file changed, 0 insertions(+), 0 deletions(-)"{
+            return true;
+        }
+        false
+    }
+
+    pub fn git_get_todays_commit() -> bool{
+        let command_handler_tester: CommandHandler = CommandHandler;
+        let binding = command_handler_tester.execute(Box::new(GitCommand::GetTodaysCommit));
+        let mut output = binding.split("\n");
+        for _ in 0..4{
+            println!("{:?}", output.next());
+        }
+        if output.next().unwrap() == "    \"test commit\""{
             return true;
         }
         false

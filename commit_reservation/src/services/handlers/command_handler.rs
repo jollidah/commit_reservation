@@ -64,6 +64,13 @@ impl CommandHandler{
                     .output()
                     .expect("error while git reset")
                 }
+
+                GitCommand::GetTodaysCommit{ .. } => {
+                    Command::new("git")
+                    .args(["log", "--after=\"yesterday\""])
+                    .output()
+                    .expect("error while git today's commit")
+                }
             };
             String::from_utf8_lossy(&result.stdout).to_string()
         } else{

@@ -19,7 +19,12 @@ mod a_integration_test{
     }
 
     #[test]
-    fn d_test_git_push(){
+    fn d_test_git_get_todays_commit(){
+        assert_eq!(command_handler_test::git_get_todays_commit(), true);
+    }
+
+    #[test]
+    fn e_test_git_push(){
         assert_eq!(command_handler_test::git_show_push(), true);
     }
 }
