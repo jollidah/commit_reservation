@@ -11,6 +11,7 @@ pub fn run(){
         println!("Start Auto Commit at {:?}", time_handler2.get_checking_time());
         auto_commit();
         println!("Successed Auto Commit");
+        break;
         // TODO Check if it needs to commit
         // if need_commit(){
         //     auto_commit();

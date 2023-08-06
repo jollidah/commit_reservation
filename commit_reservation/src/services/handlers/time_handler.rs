@@ -13,7 +13,7 @@ impl TimeHandler{
         let y = now.year();
         let m = now.month();
         let d = now.day();
-        let target = Local.with_ymd_and_hms(y, m, d, 17, 58, 0).unwrap();
+        let target = Local.with_ymd_and_hms(y, m, d, 18, 02, 0).unwrap();
         let time_sub = target.signed_duration_since(now).to_std().unwrap();
         TimeHandler{
             startingTime: now,
@@ -28,9 +28,5 @@ impl TimeHandler{
 
     pub fn get_checking_time(self) -> DateTime<Local>{
         self.checkingTime
-    }
-
-    pub fn need_commit(msg: &str) -> bool {
-        true
     }
 }
